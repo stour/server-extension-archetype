@@ -13,17 +13,16 @@
  *******************************************************************************/
 package ${package};
 
-import org.eclipse.che.inject.DynaModule;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 
-import com.google.inject.AbstractModule;
+@Path("hello")
+public class ${yourPrefix}Service {
 
-@DynaModule
-public class ${classPrefix}Module extends AbstractModule {
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void configure() {
-        bind(${classPrefix}Service.class);
+    @GET
+    @Path("{name}")
+    public String sayHello(@PathParam("name") String name) {
+        return "Hello " + name + " !";
     }
 }
